@@ -7,41 +7,47 @@ import java.awt.GraphicsEnvironment;
 import java.io.File;
 import java.io.IOException;
 import javax.swing.JLabel;
+
 /**
- * @author Ingrid
- * @version 2.0
- * Class that contains the game font and makes JLabels with the
- * font and white color.
+ * I Know That Word Game
+ * Laura Murillas 1944153  -  laura.murillas@correounivalle.edu.co
+ * Manuel Cuellar 2041041  -  manuel.cuellar@correounivalle.edu.co
+ * Version 1.0  / Date: 18/02/22
+ */
+
+
+/**
+ *Clase GameText contiene la fuente de la letra y crea JLabels con la fuente en color negro
  */
 public class GameText extends JLabel{
-	//Attribute
+	//Atributos
 	private static final long serialVersionUID = 1L;
-	public static Font nasalization = GameText.loadFont();
-	//Methods
+	public static Font fuente = GameText.loadFont();
+
+
+	//Metodos
 	/**
-	 * GameText constructor
-	 * @param String <- Label text
-	 * @param float <- Font Size
+	 * Contructor de la clase GameText
 	 */
 	public GameText(String text, float size) {
 		this.setText(text);
-		this.setFont(GameText.nasalization.deriveFont(size));
-		this.setForeground(Color.WHITE);
+		this.setFont(GameText.fuente.deriveFont(size));
+		this.setForeground(Color.BLACK);
 	}
+
 	/**
-	 * Loads nasalization font from it's file
-	 * @return Font <- Nasalization
+	 * Carga la fuente del archivo en la carpeta fonts
 	 */
 	private static Font loadFont() {
 		try {
-			nasalization = Font.createFont(Font.TRUETYPE_FONT, new File(GameText.class.getResource("/fonts/nasalization-rg.ttf").getFile()));
+			fuente = Font.createFont(Font.TRUETYPE_FONT, new File(GameText.class.getResource("/fonts/fuente.ttf").getFile()));
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-			ge.registerFont(nasalization);
+			ge.registerFont(fuente);
 			
 		} catch (FontFormatException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return nasalization;
+		return fuente;
 	}
 }

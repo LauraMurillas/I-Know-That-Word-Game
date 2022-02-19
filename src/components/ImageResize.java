@@ -8,36 +8,33 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+
 /**
- * @author Ingrid-E & Internet
- * @version 1.0
- * Class created to resize images such as gifs,png,jpg etc..
- * Found on the internet and modified to meet game requirements.
+ * I Know That Word Game
+ * Laura Murillas 1944153  -  laura.murillas@correounivalle.edu.co
+ * Manuel Cuellar 2041041  -  manuel.cuellar@correounivalle.edu.co
+ * Version 1.0  / Date: 18/02/22
+ */
+
+
+/**
+ * Clase ImageResize sirve para redimensionar imagenes como gifs, jpgs
+ * encontradas en internet para usarlas en el juego
  */
 public class ImageResize {
-	//Atributes
+	//Atributos
 	private int width, height;
 	private String imageType;
 	private ImageIcon image;
-	//Methods
+
+	//Metodos
+
+
 	/**
-	 * Image Resize constructor
-	 * @param ImageIcon <- image
-	 * @param int <- width to change the image
-	 * @param int <- height to change the image
-	 */
-	public ImageResize(ImageIcon image, int width, int height) {
-		this.width = width;
-		this.height = height;
-		this.image = image;
-		this.imageType = image.getDescription();
-		this.imageType = this.imageType.substring(this.imageType.indexOf(".")+1, this.imageType.length());
-	}
-	/**
-	 * Image Resize constructor
-	 * @param Icon <- image
-	 * @param int <- width to change the image
-	 * @param int <- height to change the image
+	 * Constructor de la clase
+	 * @paramIcon <- image
+	 * @paramint <- width to change the image
+	 * @paramint <- height to change the image
 	 */
 	public ImageResize(Icon image, int width, int height) {
 		this.width = width;
@@ -46,11 +43,9 @@ public class ImageResize {
 		this.imageType = image.toString();
 		this.imageType = this.imageType.substring(this.imageType.indexOf(".")+1, this.imageType.length());
 	}
+
 	/**
-	 * Changed the icon object to an Image object so it 
-	 * can be manipulated and resized.
-	 * @param Icon <- icon
-	 * @return Image
+	 * Cambia el objeto icon a un objeto image para que se pueda manipular y redimensionar
 	 */
 	private Image iconToImage(Icon icon) {
 		if (icon instanceof ImageIcon) {
@@ -71,8 +66,7 @@ public class ImageResize {
 		   }
 	}
 	/**
-	 * Resizes the image and returns it with the new size
-	 * @return ImageIcon
+	 * Redimensiona la imagen y la retorna con un nuevo tamaño
 	 */
 	public ImageIcon resize() {
 		Image original = this.image.getImage();
